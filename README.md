@@ -2,9 +2,9 @@
 
 In this exercise, we are going to practice props.
 
-We'll use props to break down our email list into smaller components by passing down relevant data.
+You'll use props to break down our email list into smaller components by passing down relevant data.
 
-We'll use props to break down our app into smaller components by passing down relevant functions.
+You'll use props to break down our app into smaller components by passing down relevant functions.
 
 ## Instructions
 
