@@ -6,6 +6,12 @@ You'll use props to break down our email list into smaller components by passing
 
 You'll use props to break down our app into smaller components by passing down relevant functions.
 
+## Prerequisites
+
+1. Clone this repository onto your local machines
+2. In the root directory, type `npm install`
+3. Finally, type `npm run start`
+
 ## Instructions
 
 - Break down `app.js` into components
