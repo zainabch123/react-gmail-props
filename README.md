@@ -6,7 +6,7 @@ You'll use props to break down our email list into smaller components by passing
 
 You'll use props to break down our app into smaller components by passing down relevant functions.
 
-## Prerequisites
+## Setup
 
 1. Fork this repository
 2. Clone the forked repository onto your local machines
