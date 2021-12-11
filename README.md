@@ -1,6 +1,6 @@
 # React Props
 
-In this exercise, we are going to practice props.
+In this exercise, you are going to practice props.
 
 You'll use props to break down our email list into smaller components by passing down relevant data.
 
@@ -29,6 +29,6 @@ You'll use props to break down our app into smaller components by passing down r
 
 ## Extra Challenge
 
-- Get the emails to open and display an email using **conditional rendering** and a component similar to day one.
-- You'll need to use the state to keep track of which email is selected and you'll need a component to display the email.
+- Get the emails to open and display an email using **conditional rendering** and a component similar to day one
+- You'll need to use the state to keep track of which email is selected and you'll need a component to display the email
 - Add a back button so users can return to their inbox
