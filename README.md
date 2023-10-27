@@ -10,23 +10,24 @@ You'll use props to break down our app into smaller components by passing down r
 
 1. Fork this repository
 2. Clone the forked repository onto your local machines
-3. In the root directory, type `npm install`, which installs dependencies for the project
-4. Finally, type `npm run start`, which starts a development server that runs your website in the browser. That server will reload your website whenever you make any changes to source files
+3. In the root directory, type `npm ci`, which installs dependencies for the project
+4. Finally, type `npm run dev`, which starts a development server that runs your website in the browser. That server 
+   will reload your website whenever you make any changes to source files
 
 ## Instructions
-- Break down `app.js` into components
-    - You should have an `Emails` component that renders a list
-    - You should have an `Email` component that is a list item
+- Break down `App.jsx` into components
+  - You should create an `Emails` component that renders a list
+  - You should create an `Email` component that is a list item
 - Pass through the relevant **data as props** to each component
 - Pass through the relevant **functions as props** to each component
 
 ## Tips
 - Break down the App component by component and make sure the functionality continues to work before moving onto the next section.
-- Consider breaking down `app.css` into stylesheets once you have created
-your components
+- Consider breaking down `App.css` into separate stylesheets for each of the components that you have created.
 
 ## Extension 1
-- Get the emails to open and display an email using **conditional rendering** and a component similar to day one
+- Get the emails to open and display an email using **conditional rendering** and a component similar to what you 
+  did with the [react-gmail-intro exercise](https://github.com/boolean-uk/react-gmail-intro/blob/main/images/gmail-email-view-intro.png)
 - You'll need to use the state to keep track of which email is selected and you'll need a component to display the email
 - Add a back button so users can return to their inbox
 
