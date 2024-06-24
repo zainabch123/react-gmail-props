@@ -1,20 +1,23 @@
 import { useState } from 'react'
-
 import initialEmails from './data/emails'
-
 import './styles/App.css'
+import Emails from './Emails'
+import DisplaySelectedEmail from './DisplaySelectedEmail'
 
 const getReadEmails = emails => emails.filter(email => !email.read)
-
 const getStarredEmails = emails => emails.filter(email => email.starred)
+
 
 function App() {
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
+  const [selectedEmail, setSelectedEmail] = useState(null);
 
   const unreadEmails = emails.filter(email => !email.read)
+  console.log("UnRead Emails", unreadEmails);
   const starredEmails = emails.filter(email => email.starred)
+  console.log("Starred Emails", starredEmails);
 
   const toggleStar = targetEmail => {
     const updatedEmails = emails =>
@@ -23,6 +26,7 @@ function App() {
           ? { ...email, starred: !email.starred }
           : email
       )
+      console.log("Target Email", targetEmail);
     setEmails(updatedEmails)
   }
 
@@ -36,10 +40,12 @@ function App() {
 
   let filteredEmails = emails
 
-  if (hideRead) filteredEmails = getReadEmails(filteredEmails)
+  if (hideRead == true) filteredEmails = getReadEmails(filteredEmails)
 
   if (currentTab === 'starred')
     filteredEmails = getStarredEmails(filteredEmails)
+
+  console.log("selected Email", selectedEmail);
 
   return (
     <div className="app">
@@ -62,15 +68,15 @@ function App() {
       <nav className="left-menu">
         <ul className="inbox-list">
           <li
-            className={`item ${currentTab === 'inbox' ? 'active' : ''}`}
-            onClick={() => setCurrentTab('inbox')}
+            className={`item ${currentTab === "inbox" ? "active" : ""}`}
+            onClick={() => setCurrentTab("inbox")}
           >
             <span className="label">Inbox</span>
             <span className="count">{unreadEmails.length}</span>
           </li>
           <li
-            className={`item ${currentTab === 'starred' ? 'active' : ''}`}
-            onClick={() => setCurrentTab('starred')}
+            className={`item ${currentTab === "starred" ? "active" : ""}`}
+            onClick={() => setCurrentTab("starred")}
           >
             <span className="label">Starred</span>
             <span className="count">{starredEmails.length}</span>
@@ -82,42 +88,28 @@ function App() {
               id="hide-read"
               type="checkbox"
               checked={hideRead}
-              onChange={e => setHideRead(e.target.checked)}
+              onChange={(e) => setHideRead(e.target.checked)}
             />
           </li>
         </ul>
       </nav>
-      <main className="emails">
-        <ul>
-          {filteredEmails.map((email, index) => (
-            <li
-              key={index}
-              className={`email ${email.read ? 'read' : 'unread'}`}
-            >
-              <div className="select">
-                <input
-                  className="select-checkbox"
-                  type="checkbox"
-                  checked={email.read}
-                  onChange={() => toggleRead(email)}
-                />
-              </div>
-              <div className="star">
-                <input
-                  className="star-checkbox"
-                  type="checkbox"
-                  checked={email.starred}
-                  onChange={() => toggleStar(email)}
-                />
-              </div>
-              <div className="sender">{email.sender}</div>
-              <div className="title">{email.title}</div>
-            </li>
-          ))}
-        </ul>
-      </main>
+      {selectedEmail ? (
+        <DisplaySelectedEmail
+          email={selectedEmail}
+          setSelectedEmail={setSelectedEmail}
+          toggleRead={toggleRead}
+        />
+      ) : (
+        <Emails
+          toggleStar={toggleStar}
+          toggleRead={toggleRead}
+          filteredEmails={filteredEmails}
+          setSelectedEmail={setSelectedEmail}
+        />
+      )}
     </div>
-  )
+  );
 }
+
 
 export default App
